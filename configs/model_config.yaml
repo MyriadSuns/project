@@ -1,0 +1,12 @@
+# 模型配置
+text_dim: 768
+image_dim: 2048
+video_dim: 2048
+num_classes: 2
+fusion_dim: 512
+dropout: 0.1
+
+text_expert_dim: 256
+visual_expert_dim: 512
+evidence_expert_dim: 256
+

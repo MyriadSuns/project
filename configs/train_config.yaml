@@ -1,0 +1,55 @@
+# 训练配置
+seed: 42
+batch_size: 24
+epochs: 50
+learning_rate: 1.0e-5
+weight_decay: 0.01
+max_text_len: 512
+image_size: 224
+
+# 学习率调度
+scheduler: ReduceLROnPlateau
+scheduler_kwargs:
+  mode: min
+  factor: 0.5
+  patience: 2
+
+# 早停（验证集准确率 5 轮不提升则停止）
+early_stopping_patience: 5
+early_stopping_metric: accuracy
+
+# 梯度裁剪
+grad_clip: 1.0
+
+# 记录间隔
+log_interval: 20
+
+# 混合精度训练（加速训练）
+use_amp: true
+
+# 数据加载优化
+num_workers: 0
+pin_memory: true
+
+# 路径
+data_root_weibo: processed_weibo
+data_root_tiktok: processed_tiktok
+bert_path: models/bert-base-chinese
+llm_path: models/Qwen1.5-4B-Chat
+checkpoint_dir: checkpoints
+result_dir: results
+
+# 视频处理配置
+video:
+  max_frames: 32
+  clarity_threshold: 100.0
+  fps_sample: 1.0
+
+# LLM配置
+llm:
+  max_new_tokens: 512
+  temperature: 0.7
+  top_p: 0.9
+
+# 日志级别 (DEBUG, INFO, WARNING, ERROR)
+log_level: INFO
