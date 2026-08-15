@@ -39,7 +39,7 @@ pip install -r requirements.txt
 ## 使用
 
 ```bash
-# 1. 数据准备：下载 Releases 中的 processed_weibo.rar 解压到 processed_weibo/
+# 1. 数据准备：下载 Releases 中的 processed_weibo.zip 解压到 processed_weibo/
 python process_weibo.py
 
 # 2.（可选）预计算证据特征，加速训练
@@ -54,7 +54,7 @@ python src/evaluate.py --checkpoint checkpoints/best_model.pt [--use-cache]
 
 ## 检测系统（Web 应用）
 
-除训练与研究方法外，本仓库还配套一套完整的**检测系统 Web 应用**（`detectionsystem.rar`，通过 Releases 分发），可直接部署使用：
+除训练与研究方法外，本仓库还配套一套完整的**检测系统 Web 应用**（`detectionsystem.zip`，通过 Releases 分发），可直接部署使用：
 
 - **后端（Flask）**
   - 接口：认证、管理员、检测
@@ -82,8 +82,8 @@ python src/evaluate.py --checkpoint checkpoints/best_model.pt [--use-cache]
 
 | 包 | 大小 | 内容 |
 |----|------|------|
-| `processed_weibo.rar` | 1.2GB | 预处理后的微博数据集（图片/视频/标注 CSV） |
-| `detectionsystem.rar` | 662MB | 完整检测系统 Web 应用（Flask 后端 + Vue3 前端 + 模型） |
+| `processed_weibo.zip` | 1.2GB | 预处理后的微博数据集（图片/视频/标注 CSV） |
+| `detectionsystem.zip` | 674MB | 完整检测系统 Web 应用（Flask 后端 + Vue3 前端 + 模型） |
 
 数据含真实社交媒体内容，仅供学术研究，请勿二次分发。
 
