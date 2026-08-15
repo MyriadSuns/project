@@ -52,6 +52,20 @@ python src/training/train.py --dataset weibo [--use-cache]
 python src/evaluate.py --checkpoint checkpoints/best_model.pt [--use-cache]
 ```
 
+## 检测系统（Web 应用）
+
+除训练与研究方法外，本仓库还配套一套完整的**检测系统 Web 应用**（`detectionsystem.rar`，通过 Releases 分发），可直接部署使用：
+
+- **后端（Flask）**
+  - 接口：认证、管理员、检测
+  - 核心：检测流水线 `app/core/detection_pipeline.py`
+  - 数据模型：用户、检测记录、审计日志、异步任务
+  - 安全与运维：验证码、登录限流、密码校验、请求日志、错误处理、文件存储、监控
+- **前端（Vue3）**：组件、视图、Pinia 状态管理、接口封装
+- **模型**：`models/` 目录存放训练好的检测模型
+
+部署与启动说明见压缩包内 `backend/README.md`。
+
 ## 实验结果（微博测试集）
 
 | 指标 | 数值 |
@@ -62,9 +76,16 @@ python src/evaluate.py --checkpoint checkpoints/best_model.pt [--use-cache]
 | F1 | 0.9337 |
 | AUC | 0.9722 |
 
-## 数据说明
+## 数据与系统包（Releases）
 
-原始数据及检测系统完整包通过 [GitHub Releases](https://github.com/MyriadSuns/project/releases) 分发。数据含真实社交媒体内容，仅供学术研究，请勿二次分发。
+通过 [GitHub Releases](https://github.com/MyriadSuns/project/releases) 分发两个压缩包：
+
+| 包 | 大小 | 内容 |
+|----|------|------|
+| `processed_weibo.rar` | 1.2GB | 预处理后的微博数据集（图片/视频/标注 CSV） |
+| `detectionsystem.rar` | 662MB | 完整检测系统 Web 应用（Flask 后端 + Vue3 前端 + 模型） |
+
+数据含真实社交媒体内容，仅供学术研究，请勿二次分发。
 
 ## 许可
 
